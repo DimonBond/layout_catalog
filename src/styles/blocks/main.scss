@@ -1,16 +1,24 @@
 .main {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 200px);
   justify-content: center;
-  max-width: 1024px;
-  margin: auto;
-  margin-top: 50px;
-  padding: 0 16px;
-}
+  gap: $gap-row $gap-column;
+  max-width: calc($cards-row * $card-width + 3 * $gap-column);
 
-@media (min-width: 1200px) {
-  .main {
-    max-width: 1200px;
-    padding: 0 104px;
+  &--position {
+    margin: 50px auto;
+  }
+
+  @media screen and (min-width: 1200px) {
+    & {
+      max-width: 1200px;
+      padding: 0 104px;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    & {
+      max-width: 1024px;
+    }
   }
 }
